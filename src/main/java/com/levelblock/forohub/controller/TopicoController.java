@@ -22,6 +22,7 @@ import java.net.URI;
 @RequestMapping("/topicos")
 @SecurityRequirement(name = "bearer-key")
 public class TopicoController {
+    //Controller para topicos
 
     private final TopicService topicService;
 

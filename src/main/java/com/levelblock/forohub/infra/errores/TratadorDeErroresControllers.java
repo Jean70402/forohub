@@ -15,13 +15,13 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class TratadorDeErroresControllers {
 
-    // Manejo de errores 404
+    // Manejo Error 404
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<Void> tratarError404() {
         return ResponseEntity.notFound().build();
     }
 
-    // Manejo de errores de validación (400)
+    // Manejo Error de validación (400)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<List<DatosErrorValidacion>> tratarError400(MethodArgumentNotValidException e) {
         List<DatosErrorValidacion> errores = e.getFieldErrors().stream()
@@ -30,7 +30,7 @@ public class TratadorDeErroresControllers {
         return ResponseEntity.badRequest().body(errores);
     }
 
-    // Manejo de errores personalizados de validación
+    // Manejo Errores personalizados de validación
     @ExceptionHandler(ValidacionException.class)
     public ResponseEntity<String> tratarErrorDeValidacion(ValidacionException e) {
         return ResponseEntity.badRequest().body(e.getMessage());

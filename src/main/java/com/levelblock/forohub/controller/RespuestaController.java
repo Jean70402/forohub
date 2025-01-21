@@ -18,6 +18,7 @@ import java.net.URI;
 @RequestMapping("/respuestas")
 @SecurityRequirement(name = "bearer-key")
 public class RespuestaController {
+    //Controller para el servicio de respuesta
 
     private final RespuestaService respuestaService;
 
